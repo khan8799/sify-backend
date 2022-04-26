@@ -11,4 +11,5 @@ router.get("/getBasicinfo", checkAuth, Controller.getBasicinfo);
 
 router.post("/login", Controller.login);
 
+
 module.exports = router;
