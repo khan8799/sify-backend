@@ -8,12 +8,15 @@ const jwt = require("jsonwebtoken");
 const Service = require("../service/User");
 
 const selectFields =
-  "firstName lastName email isActive createdAt isDeleted";
+  "firstName lastName displayName email contact gender isActive createdAt isDeleted";
 const addFields = [
   "firstName",
   "lastName",
+  "displayName",
   "email",
+  "contact",
   "password",
+  "gender",
 ];
 const updateFields = [
   "firstName",
