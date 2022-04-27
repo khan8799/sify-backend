@@ -10,8 +10,8 @@ dotenv.config({
 
 const cors = require("cors");
 
-// const db = url;
-const db = process.env.MONGOHOST;
+const db = 'mongodb+srv://twerlo:twerlo@cluster0.q6slj.mongodb.net/sify?retryWrites=true&w=majority';
+// const db = process.env.MONGOHOST;
 mongoose.connect(db, {
   useNewUrlParser: true,
   useUnifiedTopology: true,

@@ -8,11 +8,3 @@ const server = http.createServer(app);
 server.listen(PORT, () => {
   console.log(`Listening on port ${PORT}...`);
 });
-
-
-process.on("warning", (e) => console.warn(e.stack));
-process.on("error", (e) => console.error(e.stack));
-
-// app.listen(PORT, () => {
-//     console.log(`Listening on port ${PORT}...`);
-// });

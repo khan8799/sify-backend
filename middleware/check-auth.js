@@ -7,7 +7,8 @@ module.exports = (req, res, next) => {
   const token = req.headers.authorization.replace(/['"]+/g, "");
 
   try {
-    const decoded = jwt.verify(token, process.env.SECRET_KEY);
+    const decoded = jwt.verify(token, 'sfv@#!cgsaq!$#@ogtrbvso');
+    // const decoded = jwt.verify(token, process.env.SECRET_KEY);
     req.tokens = decoded;
     next();
   } catch (err) {

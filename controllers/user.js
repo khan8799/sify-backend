@@ -70,7 +70,8 @@ exports.login = (request, response, next) => {
         {
           user: userData,
         },
-        process.env.SECRET_KEY,
+        "sfv@#!cgsaq!$#@ogtrbvso",
+        // process.env.SECRET_KEY,
         {
           expiresIn: "12h",
         }
