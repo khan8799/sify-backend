@@ -41,7 +41,6 @@ app.use((req, res, next) => {
 });
 
 const http = require("http");
-// const app = require("./server");
 
 const PORT = process.env.PORT || 3000;
 
