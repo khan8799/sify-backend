@@ -40,5 +40,16 @@ app.use((req, res, next) => {
   next(error);
 });
 
+const http = require("http");
+// const app = require("./server");
+
+const PORT = process.env.PORT || 3000;
+
+const server = http.createServer(app);
+
+server.listen(PORT, () => {
+  console.log(`Listening on port ${PORT}...`);
+});
+
 module.exports = app;
 
