@@ -58,9 +58,30 @@ exports.createOrderId = async (request, response, next) => {
     const userFilter = {_id: request.tokens.user._id};
     const userData = {payment: result._id};
     UserService.updateOne(userFilter, userData).then(res => console.log('User updated'));
-    
+
     return response.status(201).json({
       message: "Order ID Created",
+      payload: result,
+    });
+  } catch (error) {
+    console.log(error);
+    return response.status(500).json({ error, message: "Internal error." });
+  }
+};
+
+exports.verifyPaymentSignature = async (request, response, next) => {
+  try {
+    const paymentFilter = {_id: request.query._id}
+    const paymentResponse = {
+      razorpayPaymentId: request.body.razorpay_payment_id,
+      razorpayOrderId: request.body.razorpay_order_id,
+      razorpaySignature: request.body.razorpay_signature,
+    }
+
+    const result = await Service.updateOne(paymentFilter, paymentResponse);
+
+    return response.status(200).json({
+      message: "Payment successful.",
       payload: result,
     });
   } catch (error) {
