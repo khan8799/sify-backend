@@ -2,7 +2,7 @@
   "name": "sify",
   "version": "1.0.0",
   "description": "test app",
-  "main": "index",
+  "main": "app.js",
   "scripts": {
     "local": "nodemon app",
     "test": "echo \"Error: no test specified\" && exit 1"

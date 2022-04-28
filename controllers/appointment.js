@@ -35,7 +35,7 @@ exports.add = async (request, response, next) => {
     request.body["_id"] = new mongoose.Types.ObjectId();
     const result = await Service.add(request.body);
     return response.status(201).json({
-      message: "User created",
+      message: "Appointment created",
       payload: result,
     });
   } catch (error) {
