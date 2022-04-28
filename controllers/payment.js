@@ -3,6 +3,7 @@ const axios = require("axios");
 const base64 = require("base-64"); 
 
 const Service = require("./../service/Payment");
+const UserService = require("./../service/User");
 
 const selectFields = 'orderId entity amount amountPaid amountDue currency receipt offerId status attempts notes isActive createdAtTimestamp isDeleted';
 const addFields = ['user', 'orderId', 'entity', 'amount', 'amount_paid', 'amount_due', 'currency', 'offer_id', 'status', 'attempts', 'notes', 'created_at'];
@@ -53,6 +54,11 @@ exports.createOrderId = async (request, response, next) => {
     }
 
     const result = await Service.add(createOrder);
+
+    const userFilter = {_id: request.tokens.user._id};
+    const userData = {payment: result._id};
+    UserService.updateOne(userFilter, userData).then(res => console.log('User updated'));
+    
     return response.status(201).json({
       message: "Order ID Created",
       payload: result,

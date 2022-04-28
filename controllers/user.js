@@ -8,7 +8,7 @@ const jwt = require("jsonwebtoken");
 const Service = require("../service/User");
 
 const selectFields =
-  "firstName lastName displayName email contact gender isActive createdAt isDeleted";
+  "payment firstName lastName displayName email contact gender isActive createdAt isDeleted";
 const addFields = [
   "firstName",
   "lastName",
@@ -30,8 +30,13 @@ const updateFields = [
 exports.getBasicinfo = (request, response, next) => {
   const adminDetails = request.tokens.user;
   const filter = { _id: adminDetails._id };
+  const populate = [{
+    path: 'payment',
+    select: 'orderId'
+  }]
 
   AdminModel.findOne(filter)
+    .populate(populate)
     .select(selectFields)
     .exec()
     .then((user) => {

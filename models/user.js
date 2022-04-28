@@ -2,6 +2,14 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema(
   {
+    payment: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "payment",
+    },
+    appointment: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "appointment",
+    },
     firstName: { type: String, required: [true, "First name is required"] },
     lastName: { type: String, required: [true, "Last name is required"] },
     displayName: { type: String, default: null},
