@@ -2,15 +2,12 @@ const mongoose = require("mongoose");
 
 const Service = require("./../service/Appointment");
 
-const selectFields = 'newsId user author description location tests instructions timeSlot slip galleryFile isActive createdAt isDeleted';
+const selectFields = 'newsId user author description location tests instructions bookingDate timeSlot slip galleryFile isActive createdAt isDeleted';
 const addFields = ['user', 'bookingDate', 'location', 'description', 'tests', 'instructions', 'timeSlot', 'slip', 'galleryFile'];
 
 exports.list = async (request, response, next) => {
   try {
     const filter = {user: request.tokens.user._id};
-    if (request.query.hasOwnProperty('isBookmark'))
-      filter['isBookmark'] = request.query.isBookmark === 'true' ? true : false;
-
     const option = {sort: { createdAt: -1 }}
 
     const result = await Service.findAll(filter, selectFields, option);
