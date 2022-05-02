@@ -35,7 +35,6 @@ exports.createOrderId = async (request, response, next) => {
     }
 
     const orderResponse = await makeRequest('POST', 'orders', null, createOrderIdData);
-    console.log(orderResponse);
     
     const createOrder = {
       _id: new mongoose.Types.ObjectId(),
