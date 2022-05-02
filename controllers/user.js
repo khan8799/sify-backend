@@ -32,7 +32,7 @@ exports.getBasicinfo = (request, response, next) => {
   const filter = { _id: adminDetails._id };
   const populate = [{
     path: 'payment',
-    select: 'orderId'
+    select: 'orderId razorpayPaymentId'
   }]
 
   AdminModel.findOne(filter)
@@ -75,10 +75,9 @@ exports.login = (request, response, next) => {
         {
           user: userData,
         },
-        "sfv@#!cgsaq!$#@ogtrbvso",
-        // process.env.SECRET_KEY,
+        process.env.SECRET_KEY,
         {
-          expiresIn: "12h",
+          expiresIn: "30d",
         }
       );
 
