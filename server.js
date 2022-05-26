@@ -3,7 +3,9 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 
-const envPath = ".env.dev";
+const env = process.env.BUILD_ENV || "dev";
+const envPath = ".env." + env;
+console.log(envPath);
 dotenv.config({
   path: envPath,
 });
