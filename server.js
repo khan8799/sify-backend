@@ -28,11 +28,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json({ limit: "40mb" }));
 
 const userRoutes = require("./routes/user");
+const testUserRoutes = require("./routes/test_user");
 const newsRoutes = require("./routes/news");
 const appointmentRoutes = require("./routes/appointment");
 const paymentRoutes = require("./routes/payment");
 
 app.use("/api/user", userRoutes);
+app.use("/api/test_user", testUserRoutes);
 app.use("/api/news", newsRoutes);
 app.use("/api/appointment", appointmentRoutes);
 app.use("/api/payment", paymentRoutes);

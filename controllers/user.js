@@ -94,6 +94,12 @@ exports.login = (request, response, next) => {
 
 
 exports.list = async (request, response, next) => {
+  return response
+  .status(200)
+  .json({
+    message: "running...",
+  });
+
   try {
     const totalRecords = await Service.findAll();
     const result = await Service.findAll(
