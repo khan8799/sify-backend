@@ -6,7 +6,7 @@
   "scripts": {
     "local": "nodemon server",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "BUILD_ENV=dev  node server.js",
+    "dev": "node api.js && BUILD_ENV=dev  node server.js",
     "prod": "BUILD_ENV=prod  node server.js"
   },
   "author": "",

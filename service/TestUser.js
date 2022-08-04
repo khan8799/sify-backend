@@ -36,7 +36,7 @@ module.exports.findAll = async (query = {}, project = '_id', option = {}, popula
  * @param {*} query
  * @returns
  */
-module.exports.findOne = async (query, project = {}, populate = []) => {
+module.exports.findOne = async (query, project = '', populate = []) => {
   try {
     return Model.findOne(query).select(project).populate(populate);;
   } catch (error) {
